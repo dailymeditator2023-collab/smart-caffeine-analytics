@@ -10,18 +10,30 @@ load_dotenv()
 AIRTABLE_PAT = os.getenv('AIRTABLE_PAT')
 AIRTABLE_BASE_ID = os.getenv('AIRTABLE_BASE_ID', '')
 
-# API Keys (use environment variables)
-FACEBOOK_ADS_API_KEY = os.getenv('FACEBOOK_ADS_API_KEY')
-FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID')
-FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET')
-FACEBOOK_AD_ACCOUNT_ID = os.getenv('FACEBOOK_AD_ACCOUNT_ID')
+# Meta/Facebook API Keys (supports both new and legacy variable names)
+META_APP_ID = os.getenv('META_APP_ID') or os.getenv('FACEBOOK_APP_ID')
+META_APP_SECRET = os.getenv('META_APP_SECRET') or os.getenv('FACEBOOK_APP_SECRET') 
+META_ACCESS_TOKEN = os.getenv('META_ACCESS_TOKEN') or os.getenv('FACEBOOK_ADS_API_KEY')
+META_AD_ACCOUNT_ID = os.getenv('META_AD_ACCOUNT_ID') or os.getenv('FACEBOOK_AD_ACCOUNT_ID')
 
+# Legacy variable names for backward compatibility
+FACEBOOK_ADS_API_KEY = META_ACCESS_TOKEN
+FACEBOOK_APP_ID = META_APP_ID
+FACEBOOK_APP_SECRET = META_APP_SECRET
+FACEBOOK_AD_ACCOUNT_ID = META_AD_ACCOUNT_ID
+
+# Shopify API Keys (supports both new and legacy variable names)
+SHOPIFY_SHOP_NAME = os.getenv('SHOPIFY_SHOP_NAME') or os.getenv('SHOPIFY_STORE_URL')
+SHOPIFY_ACCESS_TOKEN = os.getenv('SHOPIFY_ACCESS_TOKEN') or os.getenv('SHOPIFY_API_KEY')
+
+# Legacy variable names for backward compatibility
+SHOPIFY_API_KEY = SHOPIFY_ACCESS_TOKEN
+SHOPIFY_STORE_URL = SHOPIFY_SHOP_NAME
+
+# Google Ads API Keys
 GOOGLE_ADS_CLIENT_ID = os.getenv('GOOGLE_ADS_CLIENT_ID')
 GOOGLE_ADS_CLIENT_SECRET = os.getenv('GOOGLE_ADS_CLIENT_SECRET')
 GOOGLE_ADS_REFRESH_TOKEN = os.getenv('GOOGLE_ADS_REFRESH_TOKEN')
-
-SHOPIFY_API_KEY = os.getenv('SHOPIFY_API_KEY')
-SHOPIFY_STORE_URL = os.getenv('SHOPIFY_STORE_URL')
 
 # Data sources
 DATA_SOURCES = {
