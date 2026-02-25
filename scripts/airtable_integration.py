@@ -37,7 +37,14 @@ class AirtableClient:
             bases = self.api.bases()
             print(f"Found {len(bases)} accessible bases:")
             for base in bases:
-                print(f"  - {base['name']} (ID: {base['id']})")
+                # Handle both dict-style and object-style access
+                if hasattr(base, 'name'):
+                    name = base.name
+                    base_id = base.id
+                else:
+                    name = base.get('name', 'Unknown')
+                    base_id = base.get('id', 'Unknown')
+                print(f"  - {name} (ID: {base_id})")
             return bases
         except Exception as e:
             print(f"Error listing bases: {e}")
