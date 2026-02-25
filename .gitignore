@@ -1,0 +1,23 @@
+# Data files
+data/raw/*.csv
+data/raw/*.json
+data/raw/*.xlsx
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Reports (except templates)
+reports/*.pdf
+reports/*.xlsx
+!reports/templates/
+
+# OS generated files
+.DS_Store
+Thumbs.db
