@@ -33,11 +33,7 @@ DATA_SOURCES = {
 
 # Airtable table names (customize based on your base structure)
 AIRTABLE_TABLES = {
-    'campaigns': 'Campaigns',
-    'ads': 'Ads', 
-    'metrics': 'Metrics',
-    'conversions': 'Conversions',
-    'customers': 'Customers'
+    'data': 'Table 1'
 }
 
 # Analysis settings

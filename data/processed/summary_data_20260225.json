@@ -1,0 +1,10 @@
+{
+  "table": "data",
+  "record_count": 3,
+  "columns": [
+    "Attachment Summary",
+    "airtable_id",
+    "created_time"
+  ],
+  "last_updated": "2026-02-25T19:21:32.681824"
+}
