@@ -100,17 +100,33 @@ def generate_daily_report():
     print("\n🔗 Integration Status:")
     print("-" * 20)
     print("  ✅ Airtable: Connected & Active")
-    print("  ⏳ Facebook Ads: Pending API keys")
+    
+    # Check for Facebook data files
+    facebook_files = [f for f in data_files if 'facebook' in f]
+    if facebook_files:
+        print("  ✅ Facebook Ads: Connected & Active - Smart Caffeine account")
+    else:
+        print("  ⏳ Facebook Ads: Pending API keys")
+    
     print("  ⏳ Google Ads: Pending API keys") 
     print("  ⏳ Shopify: Pending API keys")
     
     # Next steps
     print("\n📋 Next Steps:")
     print("-" * 15)
-    print("  1. Add more data to Smart Caffeine Airtable base")
-    print("  2. Provide Facebook/Meta Ads API credentials")
-    print("  3. Provide Shopify API credentials")
-    print("  4. Schedule automated daily collection")
+    facebook_active = any('facebook' in f for f in data_files)
+    
+    if facebook_active:
+        print("  1. ✅ Facebook Ads integration complete")
+        print("  2. Add Shopify API credentials for sales data")
+        print("  3. Add Google Ads API credentials (optional)")
+        print("  4. Schedule automated daily collection")
+        print("  5. Set up performance alerts and thresholds")
+    else:
+        print("  1. Add more data to Smart Caffeine Airtable base")
+        print("  2. Provide Facebook/Meta Ads API credentials")
+        print("  3. Provide Shopify API credentials")
+        print("  4. Schedule automated daily collection")
     
     print("\nReport generated successfully! 📊")
 
