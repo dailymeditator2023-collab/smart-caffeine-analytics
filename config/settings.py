@@ -14,6 +14,7 @@ AIRTABLE_BASE_ID = os.getenv('AIRTABLE_BASE_ID', '')
 FACEBOOK_ADS_API_KEY = os.getenv('FACEBOOK_ADS_API_KEY')
 FACEBOOK_APP_ID = os.getenv('FACEBOOK_APP_ID')
 FACEBOOK_APP_SECRET = os.getenv('FACEBOOK_APP_SECRET')
+FACEBOOK_AD_ACCOUNT_ID = os.getenv('FACEBOOK_AD_ACCOUNT_ID')
 
 GOOGLE_ADS_CLIENT_ID = os.getenv('GOOGLE_ADS_CLIENT_ID')
 GOOGLE_ADS_CLIENT_SECRET = os.getenv('GOOGLE_ADS_CLIENT_SECRET')
@@ -25,7 +26,7 @@ SHOPIFY_STORE_URL = os.getenv('SHOPIFY_STORE_URL')
 # Data sources
 DATA_SOURCES = {
     'airtable': True,
-    'facebook_ads': False,  # TODO: Enable when keys are added
+    'facebook_ads': True,   # ✅ ACTIVE - Smart Caffeine ad account
     'google_ads': False,    # TODO: Enable when keys are added
     'shopify': False,       # TODO: Enable when keys are added
     'email_marketing': False

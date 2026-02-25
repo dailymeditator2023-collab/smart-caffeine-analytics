@@ -15,6 +15,7 @@ from config.settings import DATA_SOURCES, ANALYSIS_PERIOD_DAYS
 
 # Import integrations
 from airtable_integration import AirtableClient
+from facebook_ads_integration import collect_facebook_data
 
 def collect_airtable_data():
     """Collect data from Airtable"""
@@ -44,9 +45,11 @@ def collect_airtable_data():
 def collect_facebook_ads():
     """Collect Facebook Ads data"""
     print("Collecting Facebook Ads data...")
-    # TODO: Implement Facebook Ads API integration
-    print("  Facebook Ads integration pending API keys")
-    pass
+    try:
+        return collect_facebook_data()
+    except Exception as e:
+        print(f"  Error collecting Facebook Ads data: {e}")
+        return {}
 
 def collect_google_ads():
     """Collect Google Ads data"""
@@ -106,7 +109,7 @@ def main():
             collected_data['airtable'] = collect_airtable_data()
         
         if DATA_SOURCES.get('facebook_ads'):
-            collect_facebook_ads()
+            collected_data['facebook'] = collect_facebook_ads()
             
         if DATA_SOURCES.get('google_ads'):
             collect_google_ads()
